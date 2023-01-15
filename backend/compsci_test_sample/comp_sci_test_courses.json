@@ -1,0 +1,74 @@
+{
+    "comp_sci 0": {
+        "code": " COMP SCI 200",
+        "name": "PROGRAMMING I",
+        "subject": "Computer Sciences",
+        "credits": "3 credits",
+        "description": "Learn the process of incrementally developing small (200-500 lines) programs along with the fundamental Computer Science topics. These topics include: problem abstraction and decomposition, the edit-compile-run cycle, using variables of primitive and more complex data types, conditional and loop-based flow control, basic testing and debugging techniques, how to define and call functions (methods), and IO processing techniques. Also teaches and reinforces good programming practices including the use of a consistent style, and meaningful documentation. Intended for students who have no prior programming experience.",
+        "requisite": "Requisites: Satisfied Quantitative Reasoning (QR) A requirement",
+        "last taught": "Last Taught: Fall 2022"
+    },
+    "comp_sci 2": {
+        "code": " COMP SCI 220",
+        "name": "DATA SCIENCE PROGRAMMING I",
+        "subject": "Computer Sciences",
+        "credits": "4 credits",
+        "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
+        "requisite": "Requisites: Satisfied Quantitative Reasoning (QR) A requirement or declared in the Professional Capstone Program in Computer Sciences. Not open to students with credit for COMP SCI 301.",
+        "last taught": "Last Taught: Fall 2022"
+    },
+    "comp_sci 7": {
+        "code": " COMP SCI 300",
+        "name": "PROGRAMMING II",
+        "subject": "Computer Sciences",
+        "credits": "3 credits",
+        "description": "Introduction to Object-Oriented Programming using classes and objects to solve more complex problems. Introduces array-based and linked data structures: including lists, stacks, and queues. Programming assignments require writing and developing multi-class (file) programs using interfaces, generics, and exception handling to solve challenging real world problems. Topics reviewed include reading/writing data and objects from/to files and exception handling, and command line arguments. Topics introduced: object-oriented design; class vs. object; create and define interfaces and iterators; searching and sorting; abstract data types (List,Stack,Queue,PriorityQueue(Heap),Binary Search Tree); generic interfaces (parametric polymorphism); how to design and write test methods and classes; array based vs. linked node implementations; introduction to complexity analysis; recursion.",
+        "requisite": "Requisites: Satisfied QR-A requirement and (COMPSCI200, 220, 302, 310, or 301) or (ECE/COMPSCI252 and ECE203); graduate/professional standing; or declared in the Capstone Certificate in Computer Sciences. Not open to students with credit for COMP SCI 367.",
+        "last taught": "Last Taught: Fall 2022"
+    },
+    "comp_sci 11": {
+        "code": "COMP SCI 320",
+        "name": "DATA SCIENCE PROGRAMMING II",
+        "subject": "Computer Sciences",
+        "credits": "4 credits",
+        "description": "Intermediate approach to Data Science programming using Python. Experience with basic tabular analysis in Python is assumed. Learn to implement data structures (e.g., graphs) to efficiently represent datasets. Software-engineering tools such as version control and Python virtual environments will be introduced, with an emphasis on reproducibility of analysis. Tracing and A/B testing will be introduced as techniques for generating meaningful datasets. Introduces basic classification, clustering, optimization, and simulation techniques. Plotting and visual communication will be emphasized throughout the course.",
+        "requisite": "Requisites: COMPSCI220 (or COMP SCI 301 prior to Spring 2020), COMPSCI300, 319, graduate/professional standing, or declared in the Computer Sciences for Professionals Capstone Certificate",
+        "last taught": "Last Taught: Fall 2022"
+    },
+    "comp_sci 13": {
+        "code": " COMP SCI/E C E  354",
+        "name": "MACHINE ORGANIZATION AND PROGRAMMING",
+        "subject": "Computer Sciences",
+        "credits": "3 credits",
+        "description": "An introduction to fundamental structures of computer systems and the C programming language with a focus on the low-level interrelationships and impacts on performance. Topics include the virtual address space and virtual memory, the heap and dynamic memory management, the memory hierarchy and caching, assembly language and the stack, communication and interrupts/signals, compiling and assemblers/linkers.",
+        "requisite": "Requisites: ECE/COMPSCI252 and (COMPSCI300 or 302) or graduate/professional standing or declared in the Capstone Certificate in Computer Sciences for Professionals",
+        "last taught": "Last Taught: Fall 2022"
+    },
+    "comp_sci 16": {
+        "code": "COMP SCI 400",
+        "name": "PROGRAMMING III",
+        "subject": "Computer Sciences",
+        "credits": "3 credits",
+        "description": "The third course in our programming fundamentals sequence. It presumes that students understand and use functional and object-oriented design and abstract data types as needed. This course introduces balanced search trees, graphs, graph traversal algorithms, hash tables and sets, and complexity analysis and about classes of problems that require each data type. Students are required to design and implement using high quality professional code, a medium sized program, that demonstrates knowledge and use of latest language features, tools, and conventions. Additional topics introduced will include as needed for projects: inheritance and polymorphism; anonymous inner classes, lambda functions, performance analysis to discover and optimize critical code blocks. Students learn about industry standards for code development. Students will design and implement a medium size project with a more advanced user-interface design, such as a web or mobile application with a GUI and event- driven implementation; use of version-control software.",
+        "requisite": "Requisites: COMPSCI300, graduate/professional standing, or declared in the Capstone Certificate in Computer Sciences for Professionals",
+        "last taught": "Last Taught: Fall 2022"
+    },
+    "comp_sci 38": {
+        "code": "COMP SCI 537",
+        "name": "INTRODUCTION TO OPERATING SYSTEMS",
+        "subject": "Computer Sciences",
+        "credits": "4 credits",
+        "description": "Input-output hardware, interrupt handling, properties of magnetic tapes, discs and drums, associative memories and virtual address translation techniques. Batch processing, time sharing and real-time systems, scheduling resource allocation, modular software systems, performance measurement and system evaluation.",
+        "requisite": "Requisites: ECE/COMPSCI354 and (COMP SCI 367 or 400) or graduate/professional standing or declared in the Capstone Certificate in Computer Sciences for Professionals",
+        "last taught": "Last Taught: Fall 2022"
+    },
+    "comp_sci 53": {
+        "code": "COMP SCI 577",
+        "name": "INTRODUCTION TO ALGORITHMS",
+        "subject": "Computer Sciences",
+        "credits": "4 credits",
+        "description": "Basic paradigms for the design and analysis of efficient algorithms: greed, divide-and-conquer, dynamic programming, reductions, and the use of randomness. Computational intractability including typical NP-complete problems and ways to deal with them.",
+        "requisite": "Requisites: (MATH/COMPSCI240 or STAT/COMPSCI/MATH475) and (COMP SCI 367 or 400), or graduate/professional standing, or declared in the Capstone Certificate in Computer Sciences for Professionals",
+        "last taught": "Last Taught: Fall 2022"
+    }
+}

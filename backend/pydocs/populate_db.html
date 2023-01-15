@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module populate_db</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>populate_db</strong></big></big> (version 1.0.0)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cpwbry%5Cdocuments%5Cfall%202022%5Ccs506%5Cmadcourseevaluator%5Cbackend%5Cpopulate_db.py">c:\users\pwbry\documents\fall 2022\cs506\madcourseevaluator\backend\populate_db.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="config.html">config</a><br>
+<a href="json.html">json</a><br>
+</td><td width="25%" valign=top><a href="madgrades.html">madgrades</a><br>
+<a href="mysql.html">mysql</a><br>
+</td><td width="25%" valign=top><a href="praw.html">praw</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-pop_courses"><strong>pop_courses</strong></a>(testing=False)</dt><dd><tt>Function&nbsp;to&nbsp;populate&nbsp;the&nbsp;courses&nbsp;table&nbsp;with&nbsp;all&nbsp;courses&nbsp;at&nbsp;UW-Madison.&nbsp;Entries&nbsp;contain&nbsp;a&nbsp;cUID,&nbsp;the&nbsp;course's&nbsp;name,&nbsp;<br>
+the&nbsp;course's&nbsp;subject,&nbsp;the&nbsp;course's&nbsp;code,&nbsp;the&nbsp;course's&nbsp;credits,&nbsp;and&nbsp;the&nbsp;course's&nbsp;description.&nbsp;Course&nbsp;data&nbsp;scraped&nbsp;from&nbsp;<br>
+guide.wisc.edu&nbsp;with&nbsp;course_scrape/fetch_all.py&nbsp;script,&nbsp;preloaded&nbsp;in&nbsp;comp_sci_test_courses.json.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;testing&nbsp;(bool,&nbsp;optional):&nbsp;Whether&nbsp;or&nbsp;not&nbsp;to&nbsp;print&nbsp;runtime.&nbsp;Defaults&nbsp;to&nbsp;False.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None:&nbsp;Populates&nbsp;the&nbsp;courses&nbsp;table&nbsp;with&nbsp;all&nbsp;courses&nbsp;at&nbsp;UW-Madison&nbsp;stored&nbsp;in&nbsp;the&nbsp;static&nbsp;file&nbsp;all-courses.json.</tt></dd></dl>
+ <dl><dt><a name="-pop_db"><strong>pop_db</strong></a>(testing=False)</dt><dd><tt>Function&nbsp;that&nbsp;populates&nbsp;the&nbsp;entire&nbsp;database&nbsp;by&nbsp;calling&nbsp;all&nbsp;pop-functions.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;testing&nbsp;(bool,&nbsp;optional):&nbsp;Whether&nbsp;or&nbsp;not&nbsp;to&nbsp;print&nbsp;runtime.&nbsp;Defaults&nbsp;to&nbsp;False.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None:&nbsp;Populates&nbsp;the&nbsp;entire&nbsp;database&nbsp;by&nbsp;calling&nbsp;all&nbsp;pop-functions.</tt></dd></dl>
+ <dl><dt><a name="-pop_professors"><strong>pop_professors</strong></a>(testing=False)</dt><dd><tt>Function&nbsp;to&nbsp;populate&nbsp;the&nbsp;professors&nbsp;table&nbsp;with&nbsp;all&nbsp;professors&nbsp;at&nbsp;UW-Madison.&nbsp;Entries&nbsp;contain&nbsp;a&nbsp;pUID,&nbsp;the&nbsp;professor's&nbsp;first&nbsp;name,&nbsp;last&nbsp;name,&nbsp;and&nbsp;pData&nbsp;<br>
+(where&nbsp;pData&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;all&nbsp;RateMyProfessor&nbsp;data).&nbsp;Professor&nbsp;data&nbsp;scraped&nbsp;from&nbsp;RateMyProfessorss.com&nbsp;with&nbsp;rmp_scrape/fetch_all.py&nbsp;script,&nbsp;<br>
+preloaded&nbsp;in&nbsp;all-professors.json.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;testing&nbsp;(bool,&nbsp;optional):&nbsp;Whether&nbsp;or&nbsp;not&nbsp;to&nbsp;print&nbsp;runtime.&nbsp;Defaults&nbsp;to&nbsp;False.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None:&nbsp;Populates&nbsp;the&nbsp;professors&nbsp;table&nbsp;with&nbsp;all&nbsp;professors&nbsp;at&nbsp;UW-Madison&nbsp;stored&nbsp;in&nbsp;the&nbsp;static&nbsp;file&nbsp;all-professors.json.</tt></dd></dl>
+ <dl><dt><a name="-pop_reddit_comments"><strong>pop_reddit_comments</strong></a>(testing=False)</dt><dd><tt>Function&nbsp;to&nbsp;populate&nbsp;the&nbsp;rc&nbsp;(reddit&nbsp;comments)&nbsp;table&nbsp;with&nbsp;all&nbsp;comments&nbsp;that&nbsp;are&nbsp;relevant&nbsp;to&nbsp;a&nbsp;certain&nbsp;course&nbsp;that&nbsp;were&nbsp;posted&nbsp;to&nbsp;r/UWMadison.&nbsp;Entries<br>
+contain&nbsp;a&nbsp;rcUID&nbsp;(auto-incremented),&nbsp;the&nbsp;course's&nbsp;cUID,&nbsp;the&nbsp;comment's&nbsp;body&nbsp;(the&nbsp;text&nbsp;that&nbsp;makes&nbsp;up&nbsp;the&nbsp;comment),&nbsp;a&nbsp;URL&nbsp;to&nbsp;the&nbsp;comment,&nbsp;and&nbsp;the&nbsp;number<br>
+of&nbsp;upvotes&nbsp;the&nbsp;comment&nbsp;received.&nbsp;Comment&nbsp;data&nbsp;scraped&nbsp;from&nbsp;r/UWMadison&nbsp;with&nbsp;PRAW&nbsp;per&nbsp;execution&nbsp;of&nbsp;the&nbsp;script.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;testing&nbsp;(bool,&nbsp;optional):&nbsp;Whether&nbsp;or&nbsp;not&nbsp;to&nbsp;print&nbsp;runtime.&nbsp;Defaults&nbsp;to&nbsp;False.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None:&nbsp;Populates&nbsp;the&nbsp;rc&nbsp;table&nbsp;with&nbsp;all&nbsp;comments&nbsp;that&nbsp;are&nbsp;relevant&nbsp;to&nbsp;a&nbsp;certain&nbsp;course&nbsp;that&nbsp;were&nbsp;posted&nbsp;to&nbsp;r/UWMadison.<br>
+&nbsp;<br>
+Notes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;script&nbsp;will&nbsp;only&nbsp;scrape&nbsp;comments&nbsp;that&nbsp;are&nbsp;relevant&nbsp;to&nbsp;a&nbsp;course&nbsp;according&nbsp;to&nbsp;our&nbsp;criteria:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;The&nbsp;comment&nbsp;title&nbsp;must&nbsp;contain&nbsp;the&nbsp;course's&nbsp;code&nbsp;or&nbsp;acronym.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;The&nbsp;comment&nbsp;must&nbsp;be&nbsp;a&nbsp;top-level&nbsp;comment&nbsp;(not&nbsp;a&nbsp;reply&nbsp;to&nbsp;another&nbsp;comment).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;The&nbsp;comment&nbsp;must&nbsp;have&nbsp;more&nbsp;than&nbsp;2&nbsp;upvotes&nbsp;and&nbsp;be&nbsp;26&nbsp;to&nbsp;999&nbsp;characters&nbsp;long&nbsp;or&nbsp;have&nbsp;the&nbsp;course&nbsp;acronym&nbsp;in&nbsp;the&nbsp;comment&nbsp;body.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;At&nbsp;the&nbsp;moment,&nbsp;the&nbsp;script&nbsp;is&nbsp;restricted&nbsp;to&nbsp;only&nbsp;scrape&nbsp;comments&nbsp;for&nbsp;Statistics,&nbsp;Mathematics,&nbsp;and&nbsp;Computer&nbsp;Science&nbsp;courses.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;This&nbsp;is&nbsp;to&nbsp;reduce&nbsp;the&nbsp;runtime&nbsp;of&nbsp;the&nbsp;script&nbsp;and&nbsp;to&nbsp;avoid&nbsp;paying&nbsp;hosting&nbsp;fees&nbsp;for&nbsp;a&nbsp;larger&nbsp;database.</tt></dd></dl>
+ <dl><dt><a name="-pop_teaches"><strong>pop_teaches</strong></a>(testing=False)</dt><dd><tt>Function&nbsp;to&nbsp;populate&nbsp;the&nbsp;teaches&nbsp;table&nbsp;with&nbsp;cUIDs&nbsp;and&nbsp;pUIDs&nbsp;for&nbsp;each&nbsp;course&nbsp;which&nbsp;defines&nbsp;what&nbsp;courses&nbsp;each&nbsp;professor&nbsp;teaches.&nbsp;Entries&nbsp;contain&nbsp;a&nbsp;tUID<br>
+(auto-incremented),&nbsp;the&nbsp;course's&nbsp;cUID,&nbsp;and&nbsp;the&nbsp;professor's&nbsp;pUID.&nbsp;Professor&nbsp;data&nbsp;scraped&nbsp;from&nbsp;MadGrades.com&nbsp;per&nbsp;execution&nbsp;of&nbsp;the&nbsp;script.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;testing&nbsp;(bool,&nbsp;optional):&nbsp;Whether&nbsp;or&nbsp;not&nbsp;to&nbsp;print&nbsp;runtime.&nbsp;Defaults&nbsp;to&nbsp;False.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None:&nbsp;Populates&nbsp;the&nbsp;teaches&nbsp;table&nbsp;with&nbsp;cUIDs&nbsp;and&nbsp;pUIDs&nbsp;for&nbsp;each&nbsp;course&nbsp;which&nbsp;defines&nbsp;what&nbsp;courses&nbsp;each&nbsp;professor&nbsp;teaches.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__email__</strong> = 'pbryant2@wisc.edu'<br>
+<strong>__maintainer__</strong> = 'Peter Bryant'<br>
+<strong>__status__</strong> = 'Development'<br>
+<strong>conn</strong> = &lt;mysql.connector.connection_cext.CMySQLConnection object&gt;<br>
+<strong>reddit</strong> = &lt;praw.reddit.Reddit object&gt;<br>
+<strong>reddit_url</strong> = 'https://www.reddit.com'<br>
+<strong>uwmadison_subreddit</strong> = Subreddit(display_name='UWMadison')</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Peter&nbsp;Bryant,&nbsp;Jarvis&nbsp;Jia</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Credits</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">['Peter&nbsp;Bryant',&nbsp;'Jarvis&nbsp;Jia',&nbsp;'Bryan&nbsp;Li',&nbsp;'Swathi&nbsp;Annamaneni',&nbsp;'Aidan&nbsp;Shine',&nbsp;'Tong&nbsp;Yang']</td></tr></table>
+</body></html>

@@ -1,0 +1,58 @@
+{
+    "8689": {
+        "RMPID": 125529,
+        "RMPRating": 1.9,
+        "RMPRatingClass": "poor",
+        "RMPTotalRatings": 46,
+        "dept": "Computer Science",
+        "name": "Eric Bach"
+    },
+    "8943": {
+        "RMPID": 425160,
+        "RMPRating": 3.5,
+        "RMPRatingClass": "good",
+        "RMPTotalRatings": 23,
+        "dept": "Computer Science",
+        "name": "Jin-Yi Cai"
+    },
+    "9011": {
+        "RMPID": 1618280,
+        "RMPRating": 3.8,
+        "RMPRatingClass": "good",
+        "RMPTotalRatings": 26,
+        "dept": "Computer Science",
+        "name": "Shuchi Chawla"
+    },
+    "9839": {
+        "RMPID": 351690,
+        "RMPRating": 2.8,
+        "RMPRatingClass": "average",
+        "RMPTotalRatings": 47,
+        "dept": "Computer Science",
+        "name": "Deborah Joseph"
+    },
+    "10276": {
+        "RMPID": 1072358,
+        "RMPRating": 3.2,
+        "RMPRatingClass": "average",
+        "RMPTotalRatings": 42,
+        "dept": "Computer Science",
+        "name": "Dieter Van Melkebeek"
+    },
+    "10852": {
+        "RMPID": 2316450,
+        "RMPRating": 4.2,
+        "RMPRatingClass": "good",
+        "RMPTotalRatings": 42,
+        "dept": "Computer Science",
+        "name": "Marc Renault"
+    },
+    "11632": {
+        "RMPID": 2529436,
+        "RMPRating": 3.8,
+        "RMPRatingClass": "good",
+        "RMPTotalRatings": 4,
+        "dept": "Computer Science",
+        "name": "Christos Tzamos"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "cCode": "COMP SCI 577",
+    "cCredits": "4 credits",
+    "cDescription": "Basic paradigms for the design and analysis of efficient algorithms: greed, divide-and-conquer, dynamic programming, reductions, and the use of randomness. Computational intractability including typical NP-complete problems and ways to deal with them.",
+    "cName": "INTRODUCTION TO ALGORITHMS",
+    "cReq": "Requisites: (MATH/COMPSCI240 or STAT/COMPSCI/MATH475) and (COMP SCI 367 or 400), or graduate/professional standing, or declared in the Capstone Certificate in Computer Sciences for Professionals",
+    "cSubject": "Computer Sciences",
+    "cUID": 58778
+}

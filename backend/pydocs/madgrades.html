@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module madgrades</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>madgrades</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cpwbry%5Cdocuments%5Cfall%202022%5Ccs506%5Cmadcourseevaluator%5Cbackend%5Cmadgrades.py">c:\users\pwbry\documents\fall 2022\cs506\madcourseevaluator\backend\madgrades.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="config.html">config</a><br>
+</td><td width="25%" valign=top><a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-mad_grades"><strong>mad_grades</strong></a>(courseCode)</dt><dd><tt>Pulls&nbsp;grade&nbsp;distribution&nbsp;data&nbsp;for&nbsp;a&nbsp;course&nbsp;corresponding&nbsp;to&nbsp;a&nbsp;courseCode&nbsp;offered&nbsp;at&nbsp;UW-Madison.<br>
+Example&nbsp;Course&nbsp;Code:&nbsp;"COMP&nbsp;SCI&nbsp;577"<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;courseCode&nbsp;(str):&nbsp;Course&nbsp;code&nbsp;of&nbsp;the&nbsp;course&nbsp;for&nbsp;which&nbsp;grade&nbsp;distribution&nbsp;data&nbsp;is&nbsp;desired&nbsp;(ex.&nbsp;COMP&nbsp;SCI)<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;Dictionary&nbsp;containing&nbsp;grade&nbsp;distribution&nbsp;data&nbsp;for&nbsp;the&nbsp;course</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>auth_header</strong> = {'Authorization': 'Token d04a5a1e792743ce930d4727d74afcdb'}<br>
+<strong>madGrades_query_url</strong> = 'https://api.madgrades.com/v1/courses/?query='<br>
+<strong>madgrades_api_token</strong> = 'd04a5a1e792743ce930d4727d74afcdb'</td></tr></table>
+</body></html>
