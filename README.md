@@ -1,188 +1,159 @@
 # MadCourseEvaluator
 
-## Back End Documentation
+# Abstract 
 
-### Tech Stack
+Our project will be a web application that allows a user to search and view unique pages for each
+course at UW-Madison. Each page will contain aggregated information from DARS course
+information, Mad Grades, RateMyProfessor, and Reddit. This information will consist of course
+requirements, grade distributions for courses, professor ratings (including a base rating out of 5
+and instructor specific grade distribution for the course), and general mentions that are found on
+the r/UWMadison subreddit. The user can also search up professors and look up the list of
+courses the professor teaches/has taught.
 
-- Flask (backend web API)
-- MySQL (relational database)
+# Customer
 
-### Features
+The customer for this software is any UW-Madison student who is trying to plan what courses
+they would like to take. In a typical semester, students usually do their own research into
+different courses and the professors teach them before their enrollment date. As students, we
+have all had our own experiences doing this, and we see a lot of utility in building a system that
+will serve as a one-stop shop for all the information we would typically take into account when
+making our course schedule selections for any given semester.
 
-- Extracts data from madgrades, rate my professors, and reddit API 
-- ETL data procressing to populate a MySQL database
-- Loads data from a MySQL database formatted in json 
+# MadCourseEvaluator Front End React Application
 
-### Environment Variables
+The front end web app for our MadCourseEvaluator application is built using React. The application is hosted on Netlify and is accessible at [https://madgers.netlify.app/](https://madgers.netlify.app/).
 
-To run this project, you will need to add the following environment variables to your .env file
+## Running React locally
+### 1. Prerequisite Installations
+
+1. [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+2. [Yarn (Optional)](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
+
+### 2. Initialize node_modules
+
+1. Change into the madcourseevaluator directory and run `yarn`
+2. Change into the madcourseevaluator/frontend directory and run `yarn`
+
+React application should now be ready to be ran.
+
+### 3. Running React
+
+1. Change into the madcourseevaluator/frontend directory
+2. Run `yarn start`
+
+## Available Scripts 
+
+### `yarn start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `yarn flask`
+
+Runs the backend flask application located [here](../backend/app.py)\
+Note: The React application is currently pointed to our AWS solution. If you want to use the local backend, you **must** change the endpoint names located in:
+
+1. [Course.jsx](src/components/Course.jsx)
+2. [Instructor.jsx](src/components/Instructor.jsx)
+3. [Search.jsx](src/components/Search.jsx)
+
+### `yarn cypress open`
+Opens the Cypress tesing framework to run component and end to end tests. 
+
+### `yarn build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+
+
+
+# MadCourseEvaluator Back End Web API
+
+The back end web API for our MadCourseEvaluator application is built using Python3 and Flask. The API is hosted on AWS EC2 and is accessible at [http://3.145.22.97/](http://3.145.22.97/).
+
+## Running the API Locally
+
+### 1. Create a python virtual environment, activate it, then install the dependencies.
+
+Make sure you have python3 and pip3 installed on your machine before running the following commands.
+
+If you do not have virtualenv installed, run `pip3 install virtualenv` in your terminal before running the following commands.
 
 ```bash
-python3 -m venv ./env
+python3 -m venv venv             # create a virtual environment
+source venv/bin/activate         # activate the virtual environment
+pip3 install -r requirements.txt # install all dependencies
 ```
 
-## Getting Started
-
-### Prerequisites
-
-This project must run in a virtual environment: 
+### 2. Run the API
 
 ```bash
-Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+flask run
 ```
+
+### 3. Routes
+
+The back end is hosted on a AWS EC2 instance with public IP [3.145.22.97](3.145.22.97) and a RDS MySQL database connection. The following routes are publicly accessible:
+
+http://3.145.22.97/ + route
+
+route:
+- `/all-courses` - returns all courses records in the database
+- `/all-profs` - returns all professor records in the database'
+- `/course-info/<cUID>` - returns a course record with the given course id
+- `/course-profs/<cUID>` - returns all professor records who have taught a given course id
+- `/reddit-comments/<cUID>` - returns all reddit comments for the given course id
+- `/grade-distribution/<cUID>` - returns the grade distribution for the given course id
+- `/prof-info/<pUID>` - returns a professor record with the given professor id
+- `/prof-courses/<pUID>` - returns all course records taught by a given professor id
+
+## Populating the Database
+
+- Make sure you have the virtual environment activated before running the following commands.
+
+- The database configuration is set in `config.py`; as long as the database is being hosted and the connection configuration is correct, the API will be able to connect to the database. 
+
+- You should only run `populate_db.py` when you want to populate the database with new data, when the database has not been populated yet, so it has no records (failure may result with duplicate entries). At the moment, we have different scripts to scrape and create JSON files with 
+the data we would like to use, and then `populate_db.py` will depend on them to populate the database tables with the data.
+
+### 1. Run populate_db.py to populate the database with the scraped data
+Not necessary if the database has already been populated.
 
 ```bash
-env/Scripts/activate
+python3 populate_db.py
 ```
-### Installation
 
-Install any updates requirements in requirments.txt
+### 2. Run course_scrape/fetch_all.py to scrape the course information to a JSON file
+
+If you want to rescrape UW course data: When the `fetch_all.py` script is run, it will scrape the course information from the [UW Course Guide](https://guide.wisc.edu/courses/) and save it to a JSON file `all_courses.json` in the back end root directory.
 
 ```bash
-python -m pip install -r requirements.txt
+python3 course_scrape/fetch_all.py # to scrape the course information
 ```
+
+### 3. Run rmp_scrape/fetch_all.py to scrape the RMP data to a JSON file.
+
+If you want to rescrape RMP data: When the `fetch_all.py` script is run, it will scrape the RMP data from [RMP](https://www.ratemyprofessors.com/) and save it to a JSON file `all_professors.json` in the back end root directory. *Note* Under maintenance, the script will not be able to scrape the RMP data consistently.
 
 ```bash
-pip install flask
+python3 rmp_scrape/fetch_all.py # to scrape the RMP data
 ```
-
-```bash
-pip install requests
-```
-
-```bash
-pip install -U Flask-SQLAlchemy
-```
-
-### Running Tests
-
-To run tests, run the following command
-
-```bash
-
-```
-### Run Locally
-
-Clone the project
-
-```bash
-git clone https://git.doit.wisc.edu/cdis/cs/courses/cs506/madcourseevaluator.git
-```
-
-Go to the project directory
-
-```bash
-cd madcourseevaluator
-```
-
-```bash
-cd backend
-```
-
-Install dependencies
-
-```bash
-
-```
-
-Start the server
-
-```bash
-python ./app.py
-```
-
-```bash
-python populateDB.py
-```
-## Usage
-
-### 1.1 populateDB.py
-
-populateDB.py is a stand alone script used for populating our MySQL database. The back-end team decided this script would be very useful because having a database with most of our application data will reduce the amount of API requests we will need to make everytime a user requests a page. This script populates courses, professors, reddit comment data into a MySQL relational database for the front-end team to utilize when providing important information that the user needs when evaluating courses and professors. 
-
-#### 1.1.1 Functions
-
-#### 1.1.1.1 PopCourses()
-Function to populate the courses table with all courses at UW-Madison. The data is stored as a tuple in the database table (cUID (course unique identifier), the course's name, the course's subject, the course's 'course code', the course's credits, the course's description).
-
-#### 1.1.1.2 PopProfessors()
-Function to populate the professors table with all professors at UW-Madison. The data is stored as a tuple in the database table (pUID (professor unique identifier), the professor's full name, and pDate (where pDate is a dictionary of all RateMyProfessor data)). 
-
-#### 1.1.1.3 PopRedditComments()
-Function to populate the reddit comment table with top-level comments that are relevant to a certain course that were posted to r/UWMadison. The data is stored as a tuple into reddit comment table (comment ID, the comment's text, a link to the comment, the comment's upvotes, and the cUID of the course the comment is about). 
-
-#### 1.1.1.4 PopTeaches()
-Function to populate the teaches table with course ID and professor ID for each course. The data is stored as a tuple into the teaches table (course ID, professor ID).
-
-#### 1.1.1.5 PopDB()
-Function calling every function necessary to populate data into MYSQL relational database.
-
-### 1.1.2 Notes
-
-#### 1.1.2.1 UW-Madison RateMyProfessor Object ID
-It seems like RateMyProfessor.com has multiple unique ID #'s for UW-Madison associated with different records. These records are not the same, but they may contain overlapping information (i.e. Same professor names, same department, but with different reviews). We want to account for sets of reviews so that we have the most possible, so we use both UIDs ```1256``` and ```18418```
-
-#### 1.1.2.2 RateMyProfessor Public API + Modifications
-This project uses a public API found from <a href="https://github.com/tisuela/ratemyprof-api"> this Github repository</a> which has two files to create a Professor object and another to scrape RateMyProfessor for professor information who taught at a particular school. We have made slight modifications to their code to allow scraping for any school given a RateMyProfessor school ID, allowing us to make an instance of a RateMyProfApi object for each of the RateMyProfessor unique school IDs that contain records of information about professors at UW-Madison. 
-
-#### 1.1.2.3 Scraping Professors Data
-Here we are scraping all professor data from each of the RateMyProfessor school endpoints associated with UW-Madison, and storing it in a large array object. Where we will use that data to populate our DB in the helper function.
- 
-#### 1.1.2.4 Creating Course Acronym
-When we were trying to search for relevent Reddit comments about a course, we realized that all comments don't usually state the entire course code (i.e. COMP SCI 506). When comments do directly reference a course, the usually us an abbreviation of the course name (i.e. CS506 or CS 506). We want to get relevant search results from more Reddit comments so we build the acronym for each course.
-
-
-### 1.2 app.py
-This is our back-end API to extract data from our database, transform, and load data into JSON. It returns JSON format for front-end components. 
-
-### 1.2.1 API Endpoints 
-
-#### 1.2.1.1 ~/all-courses
-Returns JSON of all courses at the university along with all fields associated with each course. Each course stores (cUID, cName, cSubject, cCode, cCredits, cDescription, cReq).
-
-#### 1.2.1.2 ~/all-profs
-Returns JSON of all professors at the university along with their data from RateMyProfessor. Each professor stores their name, deptartment, RMPID (RateMyProfessorID), RMPRating, RMPTotalRatings, and RMPRatingClass.
-
-#### 1.2.1.3 ~/course-info/<cUID>
-Returns JSON of course info corresponding to a unique course ID. The course info includes the course's: cUID, name, subject, course code, number of credits, description, and requisites. 
-
-#### 1.2.1.4  ~/course-profs/<cUID>
-Returns JSON of professor data for professors who have taught a course corresponding to a unique course ID recently. Each professor stores their name, deptartment, RMPID (RateMyProfessorID), RMPRating, RMPTotalRatings, and RMPRatingClass.
- 
-#### 1.2.1.5 ~/reddit-comments/<cUID>
-Returns JSON of reddit comment data from comments on r/UWMadison relevant to the course corresponding to the unique course ID. The comments include description, link, and votes. 
-
-#### 1.2.1.6 ~/grade-distribution/<cUID>
-Returns JSON of grade distributions, section, and instructor of a course specified by course code ID.
-
-#### 1.2.1.7 ~/prof-info/<pUID>
-Returns JSON of professor information specified by profressor code ID.
-
-#### 1.2.1.8 ~/prof-courses/<pUID>
-Returns JSON of course information specificied by profressor code ID.
-
-### 1.3 config.py
-This configuration information provides credentials for MySQL database, Reddit API Qrapper, Reddit Bot and MadGrades API Token.
-
-### 1.4 madgrades.py
-This returns a JSON of grade distributions from the madgrades API.
-
-### 1.5 RMP_professor.py
-This extracts data from the rate my professor API and loads it into JSON format (professor's name, dept, id, rating, total rating, rating class).
-
-Documentation can be found [here](backend/README.md)
-
-## Front End Documentation
-Documentation can be found [here](frontend/README.md)
-
-## Roadmap
-
-* [ ]  Todo 1
-* [ ]  Todo 2
-
-## Acknowledgements
-
- - [Shields.io](https://shields.io/)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
- - [Readme Template](https://github.com/othneildrew/Best-README-Template)
