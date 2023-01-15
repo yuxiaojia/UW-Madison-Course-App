@@ -1,6 +1,7 @@
 # MadCourseEvaluator
 
-https://madgers.netlify.app/
+https://madgers.netlify.app/ , or you can start locally by populating all the data into local database
+with populateDB.py, and then run the frontend by yarn start
 
 ## Abstract 
 
